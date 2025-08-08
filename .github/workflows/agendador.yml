@@ -2,7 +2,7 @@ name: Executar Importador da Carteira
 
 on:
   schedule:
-    - cron: '0 13,15,18,22 * * *'  # UTC = 10h, 12h, 15h, 19h de Brasília
+    - cron: '0 13,15,18,22 * * *'  # Horários UTC = 10h, 12h, 15h, 19h BRT
   workflow_dispatch:
 
 jobs:
