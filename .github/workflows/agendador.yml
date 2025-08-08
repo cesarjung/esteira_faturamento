@@ -1,11 +1,11 @@
-name: Agendador Importador
+name: Agendador de Importação
 
 on:
   schedule:
-    - cron: '0 13 * * *'  # 10h BRT (13 UTC)
-    - cron: '0 15 * * *'  # 12h BRT (15 UTC)
-    - cron: '0 18 * * *'  # 15h BRT (18 UTC)
-    - cron: '0 22 * * *'  # 19h BRT (22 UTC)
+    - cron: '0 13 * * *'   # 10h BRT
+    - cron: '0 15 * * *'   # 12h BRT
+    - cron: '0 18 * * *'   # 15h BRT
+    - cron: '0 22 * * *'   # 19h BRT
   workflow_dispatch:
 
 jobs:
