@@ -1,0 +1,31 @@
+name: Importador de Carteira - Agendado
+
+on:
+  schedule:
+    - cron: "0 13 * * *"   # 10h BRT
+    - cron: "0 15 * * *"   # 12h BRT
+    - cron: "0 18 * * *"   # 15h BRT
+    - cron: "0 22 * * *"   # 19h BRT
+  workflow_dispatch:
+
+jobs:
+  run-importador:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar o repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Criar arquivo de credenciais
+        run: echo "${{ secrets.CREDENCIAIS_JSON }}" > credenciais.json
+
+      - name: Executar o script
+        run: python importador_carteira.py
